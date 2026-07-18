@@ -1,0 +1,27 @@
+{
+  "permissions": {
+    "allow": [
+      "Read(//c/Users/Matux/OneDrive/Desktop/SIDE-TRACKED/forestal pharm/**)",
+      "Bash(mkdir -p media/gallery media/uploads)",
+      "Bash(cp '__TRACKED_VAR__/476799916_1007881018067420_1774227134770697921_n\\(1\\).jpg' media/gallery/shelf-otc-medicines.jpg)",
+      "Bash(cp __TRACKED_VAR__/248680227_4980212555341287_5498949329461615557_n.jpg media/gallery/shelf-cold-flu.jpg)",
+      "Bash(cp __TRACKED_VAR__/277106378_354085563446972_6646012780473888223_n.jpg media/gallery/pharmacy-profile.jpg)",
+      "Bash(pip show *)",
+      "Bash(pip install *)",
+      "Bash(tasklist //FI \"IMAGENAME eq python.exe\" //FI \"IMAGENAME eq pip.exe\")",
+      "Bash(tasklist //FI \"IMAGENAME eq bash.exe\")",
+      "Bash(tasklist //FI \"IMAGENAME eq sh.exe\")",
+      "Bash(tasklist)",
+      "Bash(curl -sS -m 10 -o /dev/null -w \"HTTP %{http_code} in %{time_total}s\\\\n\" https://pypi.org/simple/chainlit/)",
+      "PowerShell(Get-NetTCPConnection -OwningProcess 8620 -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Process -Id 8620,21316 -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Process -Id 8620 -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Process -Id 21316 -ErrorAction SilentlyContinue)",
+      "PowerShell(Get-Process python,pip -ErrorAction SilentlyContinue)",
+      "Bash(taskkill //F //PID 21316)",
+      "Bash(taskkill //F //PID 8620)",
+      "Bash(pip --version)",
+      "Bash(uv venv *)"
+    ]
+  }
+}

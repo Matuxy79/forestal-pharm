@@ -1,0 +1,11 @@
+services:
+  app:
+    build: .
+    container_name: forestal-pharmacy-app
+    ports:
+      - "${PORT:-8000}:8000"
+    volumes:
+      - ./media:/app/media
+    environment:
+      - PYTHONUNBUFFERED=1
+    restart: unless-stopped
