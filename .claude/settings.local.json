@@ -21,7 +21,9 @@
       "Bash(taskkill //F //PID 21316)",
       "Bash(taskkill //F //PID 8620)",
       "Bash(pip --version)",
-      "Bash(uv venv *)"
+      "Bash(uv venv *)",
+      "Bash(npm install *)",
+      "Bash(npm run *)"
     ]
   }
 }

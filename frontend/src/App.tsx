@@ -1,5 +1,8 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 
+const CHAT_URL = import.meta.env.VITE_CHAT_URL ?? 'http://localhost:8000';
+const CHAT_HOST = CHAT_URL.replace(/^https?:\/\//, '');
+
 type ContextKey = 'telemetry' | 'manifold';
 type Axis = 'w' | 'x' | 'y' | 'z';
 
@@ -196,7 +199,7 @@ export default function App() {
   const norm = getNormalized();
 
   // Slider thumb color styles (inline since dynamic Tailwind classes in pseudo-selectors are tricky)
-  const sliderStyle = (bgColor: string): React.CSSProperties => ({
+  const sliderStyle = (_bgColor: string): React.CSSProperties => ({
     WebkitAppearance: 'none',
     appearance: 'none',
     background: '#1f2937',
@@ -204,19 +207,6 @@ export default function App() {
     borderRadius: '9999px',
     outline: 'none',
   });
-
-  const getThumbColor = (axis: Axis): string => {
-    const colors: Record<string, string> = {
-      'bg-cyan-500': '#06b6d4',
-      'bg-fuchsia-500': '#d946ef',
-      'bg-yellow-500': '#eab308',
-      'bg-blue-500': '#3b82f6',
-      'bg-purple-500': '#a855f7',
-      'bg-red-600': '#dc2626',
-      'bg-green-500': '#22c55e',
-    };
-    return colors[activeConf[axis].bg] || '#06b6d4';
-  };
 
   return (
     <div className="min-h-screen bg-[#050508] text-gray-300 font-mono p-4 md:p-8 flex flex-col tracking-tight overflow-hidden relative selection:bg-cyan-900">
@@ -428,13 +418,13 @@ export default function App() {
             <span className="w-2 h-2 rounded-full bg-green-400 animate-pulse"></span>
             <span className="text-xs font-mono tracking-widest uppercase">Pharmacy Assistant</span>
           </div>
-          <span className="text-[10px] font-mono text-gray-500">localhost:8000</span>
+          <span className="text-[10px] font-mono text-gray-500">{CHAT_HOST}</span>
         </div>
 
         {/* Chainlit iframe */}
         <iframe
           id="chainlit-frame"
-          src="http://localhost:8000"
+          src={CHAT_URL}
           title="Forestal Pharmacy Chat"
           className="flex-1 w-full border-0 bg-[#0d0d11]"
           allow="camera; microphone; clipboard-read; clipboard-write"
